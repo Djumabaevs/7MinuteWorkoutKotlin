@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
         binding.llStart.setOnClickListener {
             Toast.makeText(this@MainActivity, "Let's start the exercise!", Toast.LENGTH_SHORT).show()
 
