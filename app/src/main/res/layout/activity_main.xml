@@ -15,9 +15,24 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:contentDescription="image"
+            android:layout_height="@dimen/image_main_height"
+            android:contentDescription="@string/image"
             android:src="@drawable/img_main_page"/>
+
+        <LinearLayout
+            android:id="@+id/ll_start"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start"
+                android:textColor="@color/teal_700"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
 
     </LinearLayout>
 
