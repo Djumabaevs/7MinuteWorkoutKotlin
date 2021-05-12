@@ -1,5 +1,6 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.llStart.setOnClickListener {
             Toast.makeText(this@MainActivity, "Let's start the exercise!", Toast.LENGTH_SHORT).show()
-
+            val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
         }
 
     }
