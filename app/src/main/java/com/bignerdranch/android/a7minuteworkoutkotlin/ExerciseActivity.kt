@@ -15,5 +15,11 @@ class ExerciseActivity : AppCompatActivity() {
         setSupportActionBar(be.toolbarExerciseActivity)
         val actionbar = supportActionBar
 
+        if(actionbar != null) {
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+        be.toolbarExerciseActivity.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 }
