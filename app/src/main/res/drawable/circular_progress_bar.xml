@@ -5,7 +5,7 @@
         android:innerRadiusRatio="2.7"
         android:thicknessRatio="50.0"
         android:useLevel="true">
-        <solid android:color="@color/teal_700"/>
+        <solid android:color="@color/dark_green_200"/>
     </shape>
 </item>
 </layer-list>
