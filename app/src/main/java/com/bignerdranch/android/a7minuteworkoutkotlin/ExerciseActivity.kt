@@ -3,6 +3,7 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.widget.Toast
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityExerciseBinding
 
 class ExerciseActivity : AppCompatActivity() {
@@ -29,12 +30,25 @@ class ExerciseActivity : AppCompatActivity() {
     private fun setRestProgressBar() {
         be.progressBar.progress = restProgress
         restTimer = object: CountDownTimer(10000, 1000) {
+
+            override fun onFinish() {
+                Toast.makeText(this@ExerciseActivity,
+                    "Here now we will start the exercise", Toast.LENGTH_LONG).show()
+            }
+
             override fun onTick(millisUntilFinished: Long) {
               restProgress++
               be.progressBar.progress = 10 - restProgress
               be.tvTimer.text = (10 - restProgress).toString()
             }
-
         }
+    }
+
+    private fun setupRestView() {
+        if(restTimer != null) {
+            restTimer!!.cancel()
+            restProgress = 0
+        }
+
     }
 }
