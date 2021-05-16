@@ -8,6 +8,7 @@ import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityExerci
 class ExerciseActivity : AppCompatActivity() {
     private lateinit var be: ActivityExerciseBinding
     private var restTimer: CountDownTimer? = null
+    private var restProgress = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         be = ActivityExerciseBinding.inflate(layoutInflater)
@@ -22,6 +23,16 @@ class ExerciseActivity : AppCompatActivity() {
         }
         be.toolbarExerciseActivity.setNavigationOnClickListener {
             onBackPressed()
+        }
+    }
+
+    private fun setRestProgressBar() {
+        be.progressBar.progress = restProgress
+        restTimer = object: CountDownTimer(10000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                TODO("Not yet implemented")
+            }
+
         }
     }
 }
