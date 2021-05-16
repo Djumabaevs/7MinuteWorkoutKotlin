@@ -15,4 +15,15 @@
         android:theme="@style/ToolbarTheme"
         app:titleTextColor="@color/blue"/>
 
+    <LinearLayout
+        android:id="@+id/ll_rest_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_exercise_activity"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+    </LinearLayout>
+
 </RelativeLayout>
