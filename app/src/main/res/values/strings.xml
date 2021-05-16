@@ -2,4 +2,5 @@
     <string name="app_name">7MinuteWorkoutKotlin</string>
     <string name="image">image</string>
     <string name="start">START</string>
+    <string name="get_ready_for">GET READY FOR</string>
 </resources>
