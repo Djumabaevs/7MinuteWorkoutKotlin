@@ -30,7 +30,9 @@ class ExerciseActivity : AppCompatActivity() {
         be.progressBar.progress = restProgress
         restTimer = object: CountDownTimer(10000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                TODO("Not yet implemented")
+              restProgress++
+              be.progressBar.progress = 10 - restProgress
+              be.tvTimer.text = (10 - restProgress).toString()
             }
 
         }
