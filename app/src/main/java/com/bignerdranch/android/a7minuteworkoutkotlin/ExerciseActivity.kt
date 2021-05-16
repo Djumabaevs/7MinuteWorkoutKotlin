@@ -25,6 +25,16 @@ class ExerciseActivity : AppCompatActivity() {
         be.toolbarExerciseActivity.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        setupRestView()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if(restTimer != null) {
+            restTimer!!.cancel()
+            restProgress = 0
+        }
     }
 
     private fun setRestProgressBar() {
@@ -41,7 +51,7 @@ class ExerciseActivity : AppCompatActivity() {
               be.progressBar.progress = 10 - restProgress
               be.tvTimer.text = (10 - restProgress).toString()
             }
-        }
+        }.start()
     }
 
     private fun setupRestView() {
@@ -50,5 +60,6 @@ class ExerciseActivity : AppCompatActivity() {
             restProgress = 0
         }
 
+        setRestProgressBar()
     }
 }
