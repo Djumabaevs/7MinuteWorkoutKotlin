@@ -80,8 +80,12 @@ class ExerciseActivity : AppCompatActivity() {
         exerciseTimer = object: CountDownTimer(exerciseTimeDuration*1000, 1000) {
 
             override fun onFinish() {
-                Toast.makeText(this@ExerciseActivity,
-                    "Here we will start the next screen", Toast.LENGTH_LONG).show()
+               if(currentExercisePosition < exerciseList?.size!! - 1) {
+                   setupRestView()
+               } else {
+                   Toast.makeText(this@ExerciseActivity,
+                       "Congratulations! You have completed the exercise!", Toast.LENGTH_LONG).show()
+               }
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -105,5 +109,6 @@ class ExerciseActivity : AppCompatActivity() {
         setExerciseProgressBar()
 
         be.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
+        be.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
     }
 }
