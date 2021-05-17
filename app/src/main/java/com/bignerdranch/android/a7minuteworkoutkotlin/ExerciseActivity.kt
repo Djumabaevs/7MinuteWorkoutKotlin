@@ -47,8 +47,9 @@ class ExerciseActivity : AppCompatActivity() {
         restTimer = object: CountDownTimer(10000, 1000) {
 
             override fun onFinish() {
+                setupExerciseView()
                 Toast.makeText(this@ExerciseActivity,
-                    "Here now we will start the exercise", Toast.LENGTH_LONG).show()
+                    "Here now we will start the exercise", Toast.LENGTH_SHORT).show()
             }
 
             override fun onTick(millisUntilFinished: Long) {
