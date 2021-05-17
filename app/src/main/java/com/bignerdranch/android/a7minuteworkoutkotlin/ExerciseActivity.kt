@@ -16,6 +16,9 @@ class ExerciseActivity : AppCompatActivity() {
     private var exerciseProgress = 0
     private var exerciseTimeDuration: Long = 30
 
+    private var exerciseList: ArrayList<ExerciseModel>? = null
+    private var currentExercisePosition = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         be = ActivityExerciseBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -32,6 +35,8 @@ class ExerciseActivity : AppCompatActivity() {
         }
 
         setupRestView()
+
+        exerciseList = Constants.defaultExerciseList()
     }
 
     override fun onDestroy() {
@@ -47,6 +52,7 @@ class ExerciseActivity : AppCompatActivity() {
         restTimer = object: CountDownTimer(10000, 1000) {
 
             override fun onFinish() {
+                currentExercisePosition++
                 setupExerciseView()
                 Toast.makeText(this@ExerciseActivity,
                     "Here now we will start the exercise", Toast.LENGTH_SHORT).show()
@@ -97,5 +103,7 @@ class ExerciseActivity : AppCompatActivity() {
         }
 
         setExerciseProgressBar()
+
+
     }
 }
