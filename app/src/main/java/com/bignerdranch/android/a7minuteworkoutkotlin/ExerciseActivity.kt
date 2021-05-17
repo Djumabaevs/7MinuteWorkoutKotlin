@@ -104,6 +104,6 @@ class ExerciseActivity : AppCompatActivity() {
 
         setExerciseProgressBar()
 
-
+        be.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
     }
 }
