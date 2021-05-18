@@ -3,11 +3,12 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityExerciseBinding
 
-class ExerciseActivity : AppCompatActivity() {
+class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var be: ActivityExerciseBinding
 
     private var restTimer: CountDownTimer? = null
@@ -18,6 +19,8 @@ class ExerciseActivity : AppCompatActivity() {
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
+
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         be = ActivityExerciseBinding.inflate(layoutInflater)
@@ -34,9 +37,11 @@ class ExerciseActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        setupRestView()
+        tts = TextToSpeech(this, this)
 
         exerciseList = Constants.defaultExerciseList()
+
+        setupRestView()
     }
 
     override fun onDestroy() {
@@ -76,6 +81,8 @@ class ExerciseActivity : AppCompatActivity() {
             restProgress = 0
         }
 
+        be.tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition + 1].getName()
+
         setRestProgressBar()
     }
 
@@ -114,5 +121,9 @@ class ExerciseActivity : AppCompatActivity() {
 
         be.ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
         be.tvExerciseName.text = exerciseList!![currentExercisePosition].getName()
+    }
+
+    override fun onInit(status: Int) {
+
     }
 }

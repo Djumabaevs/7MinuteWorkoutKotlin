@@ -66,6 +66,23 @@
 
         </FrameLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:text="UPCOMING EXERCISE"/>
+        <TextView
+            android:id="@+id/tv_upcoming_exercise_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="22sp"
+            android:textColor="#212121"
+            android:textStyle="bold"
+            tools:text="Exercise Name"/>
+
+
     </LinearLayout>
 
 
@@ -133,22 +150,6 @@ android:visibility="gone"
     </LinearLayout>
 
 </FrameLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="16sp"
-        android:text="UPCOMING EXERCISE"/>
-    <TextView
-        android:id="@+id/tv_upcoming_exercise_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="22sp"
-        android:textColor="#212121"
-        android:textStyle="bold"
-        tools:text="Exercise Name"/>
 
 </LinearLayout>
 
