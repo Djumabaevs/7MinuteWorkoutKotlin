@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityExerciseBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var be: ActivityExerciseBinding
@@ -124,6 +127,14 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     override fun onInit(status: Int) {
-
+        if(status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+            if( result == TextToSpeech.LANG_MISSING_DATA ||
+                result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The language specified is not supported")
+            }
+        } else {
+            Log.e("TTS", "Initialization failed")
+        }
     }
 }
