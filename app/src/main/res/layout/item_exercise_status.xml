@@ -10,6 +10,7 @@
     android:textSize="14sp"
     android:textStyle="bold"
     android:padding="3dp"
-    tools:text="1">
+    tools:text="1"
+    android:background="@drawable/item_circular_color_gray_background">
 
 </TextView>
