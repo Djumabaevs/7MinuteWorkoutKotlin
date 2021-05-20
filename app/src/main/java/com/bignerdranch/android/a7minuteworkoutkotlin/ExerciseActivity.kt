@@ -62,6 +62,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             tts!!.stop()
             tts!!.shutdown()
         }
+        if(player != null) {
+            player!!.stop()
+        }
         super.onDestroy()
     }
 
@@ -86,7 +89,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun setupRestView() {
 
-        player = MediaPlayer.create(applicationContext, R.raw.welldone)
+      try {
+          player = MediaPlayer.create(applicationContext, R.raw.welldone)
+          player!!.isLooping = false
+          player!!.start()
+      } catch (e: Exception) {
+          e.printStackTrace()
+      }
 
         be.llRestView.visibility = View.VISIBLE
         be.llExerciseView.visibility = View.GONE
