@@ -1,6 +1,7 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -16,7 +17,8 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
+        return ViewHolder(LayoutInflater.from(context).
+        inflate(R.layout.item_exercise_status, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -24,6 +26,7 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val model: ExerciseModel = items[position]
 
     }
 }
