@@ -1,5 +1,6 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -24,6 +25,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var currentExercisePosition = -1
 
     private var tts: TextToSpeech? = null
+    private var player: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         be = ActivityExerciseBinding.inflate(layoutInflater)
@@ -83,6 +85,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun setupRestView() {
+
+        player = MediaPlayer.create(applicationContext, R.raw.welldone)
 
         be.llRestView.visibility = View.VISIBLE
         be.llExerciseView.visibility = View.GONE
