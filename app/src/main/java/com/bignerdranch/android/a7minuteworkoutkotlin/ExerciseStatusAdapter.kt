@@ -27,6 +27,6 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: ExerciseModel = items[position]
-
+        holder.tvItem.text = model.getId().toString()
     }
 }
