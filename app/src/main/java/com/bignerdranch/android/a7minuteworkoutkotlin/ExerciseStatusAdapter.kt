@@ -1,6 +1,7 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,11 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
         if(model.getIsSelected()) {
             holder.tvItem.background = ContextCompat.getDrawable(context,
                 R.drawable.item_circular_thin_color_accent_border)
+            holder.tvItem.setTextColor(Color.parseColor("#212121"))
+        } else if (model.getIsSelected()) {
+            holder.tvItem.background = ContextCompat.getDrawable(context,
+                R.drawable.item_circular_thin_color_accent_border)
+            holder.tvItem.setTextColor(Color.parseColor("#ffffff"))
         }
     }
 }
