@@ -1,5 +1,6 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -132,6 +133,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                } else {
                    Toast.makeText(this@ExerciseActivity,
                        "Congratulations! You have completed the exercise!", Toast.LENGTH_LONG).show()
+                   val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                   startActivity(intent)
                }
             }
 

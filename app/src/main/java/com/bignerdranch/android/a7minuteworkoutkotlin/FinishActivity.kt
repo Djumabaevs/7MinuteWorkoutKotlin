@@ -12,6 +12,11 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(fe.root)
 
+        setSupportActionBar(fe.toolbarFinishActivity)
+        val actionBar = supportActionBar
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
 
     }
 }
