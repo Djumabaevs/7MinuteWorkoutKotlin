@@ -174,5 +174,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         be.rvExerciseStatus.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
         exerciseAdapter = ExerciseStatusAdapter(exerciseList!!, this)
+        be.rvExerciseStatus.adapter = exerciseAdapter
     }
 }
