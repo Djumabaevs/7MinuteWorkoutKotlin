@@ -79,6 +79,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 currentExercisePosition++
+
+                exerciseList!![currentExercisePosition].setIsSelected(true)
+                exerciseAdapter!!.notifyDataSetChanged()
+
                 setupExerciseView()
                 Toast.makeText(this@ExerciseActivity,
                     "Here now we will start the exercise", Toast.LENGTH_SHORT).show()
