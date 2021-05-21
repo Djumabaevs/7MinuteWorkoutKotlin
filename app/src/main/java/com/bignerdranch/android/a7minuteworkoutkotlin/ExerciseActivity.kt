@@ -50,6 +50,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         exerciseList = Constants.defaultExerciseList()
 
         setupRestView()
+
+        setupExerciseStatusRecyclerView()
     }
 
     override fun onDestroy() {
@@ -169,7 +171,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun setupExerciseStatusRecyclerView() {
-        be.rvExerciseStatus.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
+        be.rvExerciseStatus.layoutManager = LinearLayoutManager(this,
+            LinearLayoutManager.HORIZONTAL, false)
+        exerciseAdapter = ExerciseStatusAdapter(exerciseList!!, this)
     }
 }
