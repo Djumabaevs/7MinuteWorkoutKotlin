@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Context) :
@@ -28,5 +29,10 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: ExerciseModel = items[position]
         holder.tvItem.text = model.getId().toString()
+
+        if(model.getIsSelected()) {
+            holder.tvItem.background = ContextCompat.getDrawable(context,
+                R.drawable.item_circular_thin_color_accent_border)
+        }
     }
 }
