@@ -18,5 +18,12 @@ class FinishActivity : AppCompatActivity() {
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
 
+        fe.toolbarFinishActivity.setNavigationOnClickListener {
+            onBackPressed()
+        }
+        fe.btnFinish.setOnClickListener {
+            finish()
+        }
+
     }
 }

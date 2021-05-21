@@ -133,6 +133,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                } else {
                    Toast.makeText(this@ExerciseActivity,
                        "Congratulations! You have completed the exercise!", Toast.LENGTH_LONG).show()
+                   finish()
                    val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
                    startActivity(intent)
                }
