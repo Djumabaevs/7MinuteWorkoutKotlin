@@ -22,6 +22,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var exerciseTimer: CountDownTimer? = null
     private var exerciseProgress = 0
     private var exerciseTimeDuration: Long = 30
+    private var restTimeDuration: Long = 10
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
@@ -76,7 +77,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun setRestProgressBar() {
         be.progressBar.progress = restProgress
-        restTimer = object: CountDownTimer(10000, 1000) {
+        restTimer = object: CountDownTimer(restTimeDuration * 1000, 1000) {
 
             override fun onFinish() {
                 currentExercisePosition++
