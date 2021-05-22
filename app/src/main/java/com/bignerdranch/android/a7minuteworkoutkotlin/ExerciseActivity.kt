@@ -9,6 +9,7 @@ import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityExerciseBinding
@@ -193,5 +194,12 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
         customDialog.setContentView(R.layout.dialog_custom_back_confirmation)
+        customDialog.findViewById<Button>(R.id.tvYes).setOnClickListener {
+            finish()
+            customDialog.dismiss()
+        }
+        customDialog.findViewById<Button>(R.id.tvNo).setOnClickListener {
+            customDialog.dismiss()
+        }
     }
 }
