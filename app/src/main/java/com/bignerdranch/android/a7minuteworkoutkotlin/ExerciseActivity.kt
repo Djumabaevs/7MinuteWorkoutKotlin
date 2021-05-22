@@ -1,5 +1,6 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -187,5 +188,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             LinearLayoutManager.HORIZONTAL, false)
         exerciseAdapter = ExerciseStatusAdapter(exerciseList!!, this)
         be.rvExerciseStatus.adapter = exerciseAdapter
+    }
+
+    private fun customDialogForBackButton() {
+        val customDialog = Dialog(this)
+        customDialog.setContentView(R.layout.dialog_custom_back_confirmation)
     }
 }
