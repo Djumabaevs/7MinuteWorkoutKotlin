@@ -6,11 +6,20 @@ import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityBMIBin
 
 class BMIActivity : AppCompatActivity() {
 private lateinit var bmi: ActivityBMIBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         bmi = ActivityBMIBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(bmi.root)
 
-
+        setSupportActionBar(bmi.toolbarBmiActivity)
+        val actionBar = supportActionBar
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.title = "CALCULATE BMI"
+        }
+        bmi.toolbarBmiActivity.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 }
