@@ -201,5 +201,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         customDialog.findViewById<Button>(R.id.tvNo).setOnClickListener {
             customDialog.dismiss()
         }
+        customDialog.show()
     }
 }
