@@ -14,11 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
         binding.llStart.setOnClickListener {
             Toast.makeText(this@MainActivity, "Let's start the exercise!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ExerciseActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.LLBMI.setOnClickListener {
+            val intent = Intent(this, BMIActivity::class.java)
         }
 
     }
