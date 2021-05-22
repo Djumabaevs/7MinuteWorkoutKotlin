@@ -46,7 +46,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             actionbar.setDisplayHomeAsUpEnabled(true)
         }
         be.toolbarExerciseActivity.setNavigationOnClickListener {
-            onBackPressed()
+          //  onBackPressed()
+            customDialogForBackButton()
         }
 
         tts = TextToSpeech(this, this)
