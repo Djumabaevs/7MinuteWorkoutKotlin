@@ -21,5 +21,17 @@ private lateinit var bmi: ActivityBMIBinding
         bmi.toolbarBmiActivity.setNavigationOnClickListener {
             onBackPressed()
         }
+        bmi.btnCalculateUnits.setOnClickListener {
+
+        }
+    }
+
+    private fun validateMetricUnits(): Boolean {
+        var isValid = true
+
+        if(bmi.etMetricUnitWeight.text.toString().isEmpty() || bmi.etMetricUnitHeight.text.toString().isEmpty())
+            isValid = false
+
+        return isValid
     }
 }
