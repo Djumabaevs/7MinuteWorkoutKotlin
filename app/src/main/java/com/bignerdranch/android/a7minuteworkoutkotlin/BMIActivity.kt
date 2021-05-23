@@ -60,7 +60,7 @@ private lateinit var bmi: ActivityBMIBinding
         bmi.tilUsUnitWeight.visibility = View.GONE
         bmi.llUsUnitsHeight.visibility = View.GONE
 
-        bmi.llDiplayBMIResult.visibility = View.GONE
+        bmi.llDiplayBMIResult.visibility = View.INVISIBLE
     }
 
     private fun makeVisibleUSUnitsView() {
@@ -75,7 +75,7 @@ private lateinit var bmi: ActivityBMIBinding
         bmi.tilUsUnitWeight.visibility = View.VISIBLE
         bmi.llUsUnitsHeight.visibility = View.VISIBLE
 
-        bmi.llDiplayBMIResult.visibility = View.GONE
+        bmi.llDiplayBMIResult.visibility = View.INVISIBLE
     }
 
     private fun displayBMIResult(bmiR: Float) {
@@ -138,5 +138,18 @@ private lateinit var bmi: ActivityBMIBinding
             isValid = false
 
         return isValid
+    }
+
+    private fun validateUSUnits(): Boolean {
+        var isValid = true
+
+        when {
+                       bmi.etUsUnitHeightFeet.text.toString().isEmpty() -> isValid = false
+                       bmi.etUsUnitHeightInch.text.toString().isEmpty() -> isValid = false
+                       bmi.etUsUnitWeight.text.toString().isEmpty() -> isValid = false
+        }
+
+                return isValid
+        }
     }
 }

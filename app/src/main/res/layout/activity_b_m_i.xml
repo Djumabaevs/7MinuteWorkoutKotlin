@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:visibility="visible">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -167,7 +167,6 @@
 
             </LinearLayout>
         </LinearLayout>
-        <!--END-->
 
         <LinearLayout
             android:id="@+id/llDiplayBMIResult"
