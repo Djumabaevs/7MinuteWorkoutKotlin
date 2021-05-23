@@ -46,6 +46,10 @@ private lateinit var bmi: ActivityBMIBinding
         bmi.tilMetricUnitWeight.visibility = View.VISIBLE
         bmi.tilMetricUnitHeight.visibility = View.VISIBLE
 
+        bmi.etUsUnitWeight.text!!.clear()
+        bmi.etUsUnitHeightFeet.text!!.clear()
+        bmi.etUsUnitHeightInch.text!!.clear()
+
         bmi.tilUsUnitWeight.visibility = View.GONE
         bmi.llUsUnitsHeight.visibility = View.GONE
 
