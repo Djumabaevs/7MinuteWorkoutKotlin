@@ -39,6 +39,14 @@ private lateinit var bmi: ActivityBMIBinding
                 Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
             }
         }
+        makeVisibleMetricUnitsView()
+        bmi.rgUnits.setOnCheckedChangeListener { group, checkedId ->
+            if(checkedId == R.id.rbMetricUnits) {
+                makeVisibleMetricUnitsView()
+            } else {
+                makeVisibleUSUnitsView()
+            }
+        }
     }
 
     private fun makeVisibleMetricUnitsView() {
@@ -46,9 +54,8 @@ private lateinit var bmi: ActivityBMIBinding
         bmi.tilMetricUnitWeight.visibility = View.VISIBLE
         bmi.tilMetricUnitHeight.visibility = View.VISIBLE
 
-        bmi.etUsUnitWeight.text!!.clear()
-        bmi.etUsUnitHeightFeet.text!!.clear()
-        bmi.etUsUnitHeightInch.text!!.clear()
+        bmi.etMetricUnitWeight.text!!.clear()
+        bmi.etMetricUnitHeight.text!!.clear()
 
         bmi.tilUsUnitWeight.visibility = View.GONE
         bmi.llUsUnitsHeight.visibility = View.GONE
@@ -60,6 +67,10 @@ private lateinit var bmi: ActivityBMIBinding
         currentVisibleView = METRIC_UNITS_VIEW
         bmi.tilMetricUnitWeight.visibility = View.GONE
         bmi.tilMetricUnitHeight.visibility = View.GONE
+
+        bmi.etUsUnitWeight.text!!.clear()
+        bmi.etUsUnitHeightFeet.text!!.clear()
+        bmi.etUsUnitHeightInch.text!!.clear()
 
         bmi.tilUsUnitWeight.visibility = View.VISIBLE
         bmi.llUsUnitsHeight.visibility = View.VISIBLE
