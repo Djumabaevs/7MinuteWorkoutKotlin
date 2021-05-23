@@ -46,8 +46,19 @@ private lateinit var bmi: ActivityBMIBinding
         bmi.tilMetricUnitWeight.visibility = View.VISIBLE
         bmi.tilMetricUnitHeight.visibility = View.VISIBLE
 
-        bmi.tilUsUnitWeight.visibility = View.VISIBLE
+        bmi.tilUsUnitWeight.visibility = View.GONE
         bmi.llUsUnitsHeight.visibility = View.GONE
+
+        bmi.llDiplayBMIResult.visibility = View.GONE
+    }
+
+    private fun makeVisibleUSUnitsView() {
+        currentVisibleView = METRIC_UNITS_VIEW
+        bmi.tilMetricUnitWeight.visibility = View.GONE
+        bmi.tilMetricUnitHeight.visibility = View.GONE
+
+        bmi.tilUsUnitWeight.visibility = View.VISIBLE
+        bmi.llUsUnitsHeight.visibility = View.VISIBLE
 
         bmi.llDiplayBMIResult.visibility = View.GONE
     }
