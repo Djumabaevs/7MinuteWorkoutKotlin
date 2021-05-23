@@ -3,6 +3,7 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityBMIBinding
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -31,6 +32,8 @@ private lateinit var bmi: ActivityBMIBinding
                 val bmi = weightValue / (heightValue * heightValue)
 
                 displayBMIResult(bmi)
+            } else {
+                Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
             }
         }
     }
