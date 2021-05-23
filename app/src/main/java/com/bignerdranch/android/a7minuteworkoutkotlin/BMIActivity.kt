@@ -25,20 +25,46 @@ private lateinit var bmi: ActivityBMIBinding
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.title = "CALCULATE BMI"
         }
+
         bmi.toolbarBmiActivity.setNavigationOnClickListener {
             onBackPressed()
         }
-        bmi.btnCalculateUnits.setOnClickListener {
-            if(validateMetricUnits()) {
-                val heightValue: Float = bmi.etMetricUnitHeight.text.toString().toFloat()/ 100
-                val weightValue: Float = bmi.etMetricUnitWeight.text.toString().toFloat()
-                val bmi = weightValue / (heightValue * heightValue)
 
-                displayBMIResult(bmi)
-            } else {
-                Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
-            }
+        bmi.btnCalculateUnits.setOnClickListener {
+         if(currentVisibleView.equals(METRIC_UNITS_VIEW)) {
+             if(validateMetricUnits()) {
+                 val heightValue: Float = bmi.etMetricUnitHeight.text.toString().toFloat()/ 100
+                 val weightValue: Float = bmi.etMetricUnitWeight.text.toString().toFloat()
+                 val bmi = weightValue / (heightValue * heightValue)
+
+                 displayBMIResult(bmi)
+             } else {
+                 Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
+             }
+           } else {
+               if(validateUSUnits()) {
+                   val usUnitHeightValueFeet: String =
+                       bmi.etUsUnitHeightFeet.text.toString() // Height Feet value entered in EditText component.
+                   val usUnitHeightValueInch: String =
+                       bmi.etUsUnitHeightInch.text.toString() // Height Inch value entered in EditText component.
+                   val usUnitWeightValue: Float = bmi.etUsUnitWeight.text.toString()
+                       .toFloat() // Weight value entered in EditText component.
+
+                   // Here the Height Feet and Inch values are merged and multiplied by 12 for converting it to inches.
+                   val heightValue =
+                       usUnitHeightValueInch.toFloat() + usUnitHeightValueFeet.toFloat() * 12
+
+                   // This is the Formula for US UNITS result.
+                   // Reference Link : https://www.cdc.gov/healthyweight/assessing/bmi/childrens_bmi/childrens_bmi_formula.html
+                   val bmi = 703 * (usUnitWeightValue / (heightValue * heightValue))
+
+                   displayBMIResult(bmi) // Displaying the result into UI
+               } else {
+                   Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
+               }
+         }
         }
+
         makeVisibleMetricUnitsView()
         bmi.rgUnits.setOnCheckedChangeListener { group, checkedId ->
             if(checkedId == R.id.rbMetricUnits) {
@@ -144,12 +170,11 @@ private lateinit var bmi: ActivityBMIBinding
         var isValid = true
 
         when {
-                       bmi.etUsUnitHeightFeet.text.toString().isEmpty() -> isValid = false
-                       bmi.etUsUnitHeightInch.text.toString().isEmpty() -> isValid = false
-                       bmi.etUsUnitWeight.text.toString().isEmpty() -> isValid = false
+            bmi.etUsUnitHeightFeet.text.toString().isEmpty() -> isValid = false
+            bmi.etUsUnitHeightInch.text.toString().isEmpty() -> isValid = false
+            bmi.etUsUnitWeight.text.toString().isEmpty() -> isValid = false
         }
 
                 return isValid
         }
     }
-}
