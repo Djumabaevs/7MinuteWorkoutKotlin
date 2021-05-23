@@ -30,7 +30,7 @@ private lateinit var bmi: ActivityBMIBinding
                 val weightValue: Float = bmi.etMetricUnitWeight.text.toString().toFloat()
                 val bmi = weightValue / (heightValue * heightValue)
 
-
+                displayBMIResult(bmi)
             }
         }
     }
