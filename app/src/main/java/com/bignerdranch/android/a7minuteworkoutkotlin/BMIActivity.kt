@@ -41,6 +41,17 @@ private lateinit var bmi: ActivityBMIBinding
         }
     }
 
+    private fun makeVisibleMetricUnitsView() {
+        currentVisibleView = METRIC_UNITS_VIEW
+        bmi.tilMetricUnitWeight.visibility = View.VISIBLE
+        bmi.tilMetricUnitHeight.visibility = View.VISIBLE
+
+        bmi.tilUsUnitWeight.visibility = View.VISIBLE
+        bmi.llUsUnitsHeight.visibility = View.GONE
+
+        bmi.llDiplayBMIResult.visibility = View.GONE
+    }
+
     private fun displayBMIResult(bmiR: Float) {
         val bmiLabel: String
         val bmiDescription: String
