@@ -90,10 +90,11 @@ private lateinit var bmi: ActivityBMIBinding
             bmiDescription = "OMG! You are in a very dangerous condition! Act now!"
         }
 
-        bmi.tvYourBMI.visibility = View.VISIBLE
+        bmi.llDiplayBMIResult.visibility = View.VISIBLE
+     /*   bmi.tvYourBMI.visibility = View.VISIBLE
         bmi.tvBMIValue.visibility = View.VISIBLE
         bmi.tvBMIType.visibility = View.VISIBLE
-        bmi.tvBMIDescription.visibility = View.VISIBLE
+        bmi.tvBMIDescription.visibility = View.VISIBLE*/
 
         // This is used to round the result value to 2 decimal values after "."
         val bmiValue = BigDecimal(bmiR.toDouble()).setScale(2, RoundingMode.HALF_EVEN).toString()
