@@ -10,6 +10,9 @@ import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
 private lateinit var bmi: ActivityBMIBinding
+    val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW"
+    val US_UNITS_VIEW = "US_UNIT_VIEW"
+    var currentVisibleView: String = METRIC_UNITS_VIEW
 
     override fun onCreate(savedInstanceState: Bundle?) {
         bmi = ActivityBMIBinding.inflate(layoutInflater)
