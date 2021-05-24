@@ -41,16 +41,13 @@ private lateinit var bmi: ActivityBMIBinding
              } else {
                  Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
              }
-           } else {
-               if(validateUSUnits()) {
+           } else if(validateUSUnits()) {
                    val usUnitHeightValueFeet: String =
-                       bmi.etUsUnitHeightFeet.text.toString() // Height Feet value entered in EditText component.
+                       bmi.etUsUnitHeightFeet.text.toString()
                    val usUnitHeightValueInch: String =
-                       bmi.etUsUnitHeightInch.text.toString() // Height Inch value entered in EditText component.
-                   val usUnitWeightValue: Float = bmi.etUsUnitWeight.text.toString()
-                       .toFloat() // Weight value entered in EditText component.
+                       bmi.etUsUnitHeightInch.text.toString()
+                   val usUnitWeightValue: Float = bmi.etUsUnitWeight.text.toString().toFloat()
 
-                   // Here the Height Feet and Inch values are merged and multiplied by 12 for converting it to inches.
                    val heightValue =
                        usUnitHeightValueInch.toFloat() + usUnitHeightValueFeet.toFloat() * 12
 
@@ -58,11 +55,11 @@ private lateinit var bmi: ActivityBMIBinding
                    // Reference Link : https://www.cdc.gov/healthyweight/assessing/bmi/childrens_bmi/childrens_bmi_formula.html
                    val bmi = 703 * (usUnitWeightValue / (heightValue * heightValue))
 
-                   displayBMIResult(bmi) // Displaying the result into UI
+                   displayBMIResult(bmi)
                } else {
                    Toast.makeText(this@BMIActivity, "please enter valid values", Toast.LENGTH_SHORT).show()
                }
-         }
+
         }
 
         makeVisibleMetricUnitsView()
