@@ -1,5 +1,6 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -27,5 +28,18 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_HISTORY") // It drops the existing history table
         onCreate(db) // Calls the onCreate function so all the updated tables will be created.
+    }
+
+    fun addDate(date: String) {
+        val values =
+            ContentValues() // Creates an empty set of values using the default initial size
+        values.put(
+            COLUMN_COMPLETED_DATE,
+            date
+        ) // Putting the value to the column along with the value.
+        val db =
+            this.writableDatabase // Create and/or open a database that will be used for reading and writing.
+        db.insert(TABLE_HISTORY, null, values) // Insert query is return
+        db.close() // Database is closed after insertion.
     }
 }
