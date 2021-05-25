@@ -2,6 +2,7 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
@@ -22,6 +23,15 @@ class HistoryActivity : AppCompatActivity() {
         ha.toolbarHistoryActivity.setNavigationOnClickListener {
             onBackPressed()
         }
+        getAllCompletedDates()
+    }
 
+    private fun getAllCompletedDates() {
+        val dbHandler = SqliteOpenHelper(this, null)
+        val allCompletedDatesList = dbHandler.getAllCompletedDatesList()
+
+        for(i in allCompletedDatesList) {
+            Log.i("datesHistory", "" + i)
+        }
     }
 }
