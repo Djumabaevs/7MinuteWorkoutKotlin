@@ -25,6 +25,7 @@ class SqliteOpenHelper(context: Context, factory: SQLiteDatabase.CursorFactory?)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_HISTORY") // It drops the existing history table
+        onCreate(db) // Calls the onCreate function so all the updated tables will be created.
     }
 }
