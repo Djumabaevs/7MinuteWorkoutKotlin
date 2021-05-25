@@ -12,6 +12,16 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(ha.root)
 
+        setSupportActionBar(ha.toolbarHistoryActivity)
+        val actionBar = supportActionBar
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.title = "HISTORY"
+        }
+
+        ha.toolbarHistoryActivity.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
     }
 }
