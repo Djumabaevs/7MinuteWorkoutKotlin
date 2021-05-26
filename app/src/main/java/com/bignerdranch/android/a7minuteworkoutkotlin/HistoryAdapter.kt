@@ -1,6 +1,7 @@
 package com.bignerdranch.android.a7minuteworkoutkotlin
 
 import android.content.Context
+import android.graphics.Color
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,16 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val date: String = items.get(position)
 
+        holder.tvPosition.text = (position+1).toString()
+        holder.tvItem.text = date
+
+        if(position % 2 == 0) {
+            holder.llHistoryMainItem.setBackgroundColor(Color.parseColor("#ebebeb"))
+        } else {
+            holder.llHistoryMainItem.setBackgroundColor(Color.parseColor("#ffffff"))
+        }
     }
 
     override fun getItemCount(): Int {
