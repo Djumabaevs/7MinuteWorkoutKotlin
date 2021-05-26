@@ -2,6 +2,7 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 
 import android.content.Context
 import android.text.Layout
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -21,7 +22,7 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_history_row, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -29,7 +30,7 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
     }
 
     override fun getItemCount(): Int {
-
+        return items.size
     }
 
 
