@@ -3,6 +3,8 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.android.a7minuteworkoutkotlin.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
@@ -29,6 +31,15 @@ class HistoryActivity : AppCompatActivity() {
     private fun getAllCompletedDates() {
         val dbHandler = SqliteOpenHelper(this, null)
         val allCompletedDatesList = dbHandler.getAllCompletedDatesList()
+
+        if(allCompletedDatesList.size > 0) {
+            ha.tvHistory.visibility = View.VISIBLE
+            ha.rvHistory.visibility = View.VISIBLE
+            ha.tvNoDataAvailable.visibility = View.GONE
+
+            ha.rvHistory.layoutManager = LinearLayoutManager(this)
+
+        }
 
         for(i in allCompletedDatesList) {
             Log.i("datesHistory", "" + i)

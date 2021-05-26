@@ -42,6 +42,4 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
     override fun getItemCount(): Int {
         return items.size
     }
-
-
 }
