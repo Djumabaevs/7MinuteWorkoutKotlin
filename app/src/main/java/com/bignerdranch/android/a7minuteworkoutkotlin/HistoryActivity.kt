@@ -38,7 +38,8 @@ class HistoryActivity : AppCompatActivity() {
             ha.tvNoDataAvailable.visibility = View.GONE
 
             ha.rvHistory.layoutManager = LinearLayoutManager(this)
-
+            val historyAdapter = HistoryAdapter(this, allCompletedDatesList)
+            ha.rvHistory.adapter = historyAdapter
         }
 
         for(i in allCompletedDatesList) {
