@@ -14,7 +14,7 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
 
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
-        val tvItem = view.findViewById<TextView>(R.id.tv_item)
+        val tvItem: TextView = view.findViewById<TextView>(R.id.tv_item)
 
     }
 
