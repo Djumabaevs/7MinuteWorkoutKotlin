@@ -3,6 +3,7 @@ package com.bignerdranch.android.a7minuteworkoutkotlin
 import android.content.Context
 import android.text.Layout
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,18 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
         val llHistoryMainItem = view.findViewById<LinearLayout>(R.id.ll_history_item_main)
         val tvItem = view.findViewById<TextView>(R.id.tv_item)
         val tvPosition = view.findViewById<TextView>(R.id.tvPosition)
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+    }
+
+    override fun getItemCount(): Int {
 
     }
 
